@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+}
+
+.app-logo {
+  max-width: 60px;
+}
+
+.mat-button {
+  color: #a4a7ac;
+
+  &.active {
+    color: #FFFFFF;
+  }
+}
