@@ -1,21 +1,21 @@
 <main>
-  <mat-toolbar class="sub-navbar" style="display: flex">
+  <mat-toolbar style="display: flex">
     <mat-toolbar-row>
       <ul style="display: flex;padding-left: 20px;flex-grow: 1;">
         <li>
-          <button mat-button>New</button>
+          <button mat-button [class.active]="selectedStatus === 'new'">New</button>
         </li>
         <li>
-          <button mat-button>Scanning</button>
+          <button mat-button [class.active]="selectedStatus === 'scanning'">Scanning</button>
         </li>
         <li>
-          <button mat-button>Image Processing</button>
+          <button mat-button [class.active]="selectedStatus === 'image-processing'">Image Processing</button>
         </li>
         <li>
-          <button mat-button>Shading</button>
+          <button mat-button [class.active]="selectedStatus === 'shading'">Shading</button>
         </li>
         <li>
-          <button mat-button>Completed</button>
+          <button mat-button [class.active]="selectedStatus === 'completed'">Completed</button>
         </li>
       </ul>
     </mat-toolbar-row>
