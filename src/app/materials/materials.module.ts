@@ -11,7 +11,7 @@ import { MaterialsComponent } from './materials.component';
     MaterialModule,
     RouterModule.forChild([
       { path: 'materials', component: MaterialsComponent },
-      { path: 'materials/:id', component: MaterialsComponent }
+      { path: 'materials/:id', component: MaterialsComponent },
     ])
   ],
   declarations: [MaterialsComponent]
