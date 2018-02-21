@@ -32,10 +32,9 @@ export class MaterialsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {}
 
-  private getMaterials() {
+  public getMaterials() {
     if (!this.isLoading && !this.materialsFetched) {
       this.isLoading = true;
-      console.log('getMaterials');
       this.materialsService.getMaterialsByState(this.selectedStatus, this.pageNo, this.PAGE_SIZE).subscribe((resp) => {
         this.isLoading = false;
         if (resp.length > 0) {
