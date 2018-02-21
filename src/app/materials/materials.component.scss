@@ -1,63 +1,89 @@
-.mat-toolbar-row {
-  .mat-button {
-    color: #a8a8a8;
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
-    &.active {
-      color: #6093ed;
-      &:after {
-        content: '';
-        width: 100%;
-        height: 3px;
-        background: #6093ed;
-        position: absolute;
-        bottom: 0;
-        left: 0;
+  .mat-toolbar {
+    display: flex;
+    .mat-toolbar-row {
+
+      > ul {
+        display: flex;
+        padding-left: 20px;
+        flex-grow: 1;
+      }
+
+      .mat-button {
+        color: #a8a8a8;
+
+        &.active {
+          color: #6093ed;
+          &:after {
+            content: '';
+            width: 100%;
+            height: 3px;
+            background: #6093ed;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .material-cards {
+    overflow: auto;
+
+    .materials-card-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+
+      .material-card {
+        margin: 15px;
+        flex-basis: calc(25% - 30px);
+        box-sizing: border-box;
+        padding: 0 24px;
+        > img {
+          margin: 0 -24px 0 -24px;
+        }
+
+        .mat-card-content {
+          position: relative;
+          margin: 0 -24px;
+          .id {
+            position: absolute;
+            top: -23px;
+            background: #FFFFFF;
+            padding: 4px 9px;
+            left: 0;
+          }
+
+          .tags {
+            padding: 0 8px;
+            .tag {
+              background: #5dbf47;
+              display: inline-block;
+              padding: 2px 8px;
+              border-radius: 3px;
+              color: #FFFFFF;
+              margin: 2px 0;
+            }
+          }
+
+          .name {
+            text-align: center;
+            padding: 15px 0;
+          }
+        }
       }
     }
   }
 }
 
-.material-card {
-  margin: 15px;
-  flex-basis: calc(25% - 30px);
-  box-sizing: border-box;
-  padding: 0 24px;
-
-  > img {
-    margin: 0 -24px 0 -24px;
-  }
-}
-
-main {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.mat-card-content {
-  position: relative;
-  margin: 0 -24px;
-  .id {
-    position: absolute;
-    top: -23px;
-    background: #FFFFFF;
-    padding: 4px 9px;
-    left: 0;
-  }
-
-  .tags {
-    padding: 0 8px;
-    .tag {
-      background: #5dbf47;
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 3px;
-      color: #FFFFFF;
-      margin: 2px 0;
-    }
-  }
-
-  .description {
-    text-align: center;
-    padding: 15px 0;
-  }
+.app-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

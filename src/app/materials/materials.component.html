@@ -1,7 +1,7 @@
 <main>
-  <mat-toolbar style="display: flex">
+  <mat-toolbar>
     <mat-toolbar-row>
-      <ul style="display: flex;padding-left: 20px;flex-grow: 1;">
+      <ul>
         <li>
           <button mat-button [class.active]="selectedStatus === 'new'">New</button>
         </li>
@@ -21,24 +21,31 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-card class="material-card">
-    <img mat-card-image src="assets/images/shader-balls/mat0001.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <div class="id">
-        253
-      </div>
+  <div class="material-cards" appInfiniteScroll (loadMore)="getMaterials()">
+    <div class="materials-card-wrapper">
+      <mat-card class="material-card" *ngFor="let material of materials">
+        <img mat-card-image [src]="material.gallery_image" alt="Material Image">
+        <mat-card-content>
+          <div class="id">
+            {{ material.id }}
+          </div>
 
-      <div class="tags">
-        <div class="tag">
-          Paid
-        </div>
-      </div>
+          <div class="tags">
+            <div class="tag" *ngFor="let tag of material.tags">
+              {{ tag }}
+            </div>
+          </div>
 
-      <div class="description">
-        <p>
-          Bellini Pattern Black
-        </p>
-      </div>
-    </mat-card-content>
-  </mat-card>
+          <div class="name">
+            <p>
+              {{ material.name }}
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </main>
+
+<mat-progress-spinner *ngIf="isLoading"  class="app-loader" [mode]="'indeterminate'" [color]="'primary'">
+</mat-progress-spinner>
