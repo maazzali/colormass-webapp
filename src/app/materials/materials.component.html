@@ -1,7 +1,7 @@
-<main>
-  <mat-toolbar>
+<main fxLayout="column" fxFlex="1 1 100%">
+  <mat-toolbar fxLayout>
     <mat-toolbar-row>
-      <ul>
+      <ul fxLayout fxFlex="1 1 auto">
         <li>
           <button mat-button [class.active]="selectedStatus === 'new'">New</button>
         </li>
@@ -22,7 +22,7 @@
   </mat-toolbar>
 
   <div class="material-cards" appInfiniteScroll (loadMore)="getMaterials()">
-    <div class="materials-card-wrapper">
+    <div fxLayout fxLayoutWrap>
       <mat-card class="material-card" *ngFor="let material of materials">
         <img mat-card-image [src]="material.gallery_image" alt="Material Image">
         <mat-card-content>
@@ -47,5 +47,5 @@
   </div>
 </main>
 
-<mat-progress-spinner *ngIf="isLoading"  class="app-loader" [mode]="'indeterminate'" [color]="'primary'">
+<mat-progress-spinner *ngIf="isLoading" class="app-loader" [mode]="'indeterminate'" [color]="'primary'">
 </mat-progress-spinner>

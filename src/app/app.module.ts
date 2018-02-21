@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 
+import { CommonModule } from './common.module';
 import { LayoutModule } from './layout/layout.module';
 import { MaterialsModule } from './materials/materials.module';
 
@@ -23,6 +23,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemMaterialsService, { delay: 1000 }),
+    CommonModule,
     MaterialsModule,
     RouterModule.forRoot(
       [
@@ -30,7 +31,6 @@ import { AppComponent } from './app.component';
         { path: 'materials', loadChildren: 'app/materials/materials.module#MaterialsModule' },
       ]
     ),
-    FlexLayoutModule,
     LayoutModule
   ],
   providers: [],
