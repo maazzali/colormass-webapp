@@ -3,27 +3,40 @@
     <mat-toolbar-row>
       <ul fxLayout fxFlex="1 1 auto">
         <li>
-          <button mat-button [class.active]="selectedStatus === 'new'">New</button>
+          <button mat-button routerLink="/materials" [class.active]="selectedStatus === 'new'"
+                  [queryParams]="{status: 'new'}"
+                  routerLinkActive="active">
+            New
+          </button>
         </li>
         <li>
-          <button mat-button [class.active]="selectedStatus === 'scanning'">Scanning</button>
+          <button mat-button routerLink="/materials" [queryParams]="{status: 'scanning'}" routerLinkActive="active">
+            Scanning
+          </button>
         </li>
         <li>
-          <button mat-button [class.active]="selectedStatus === 'image-processing'">Image Processing</button>
+          <button mat-button routerLink="/materials" [queryParams]="{status: 'image-processing'}"
+                  routerLinkActive="active">Image Processing
+          </button>
         </li>
         <li>
-          <button mat-button [class.active]="selectedStatus === 'shading'">Shading</button>
+          <button mat-button routerLink="/materials" [queryParams]="{status: 'shading'}" routerLinkActive="active">
+            Shading
+          </button>
         </li>
         <li>
-          <button mat-button [class.active]="selectedStatus === 'completed'">Completed</button>
+          <button mat-button routerLink="/materials" [queryParams]="{status: 'completed'}" routerLinkActive="active">
+            Completed
+          </button>
         </li>
       </ul>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="material-cards" appInfiniteScroll (loadMore)="getMaterials()">
+  <div class="material-cards" appInfiniteScroll (loadMore)="getMaterials(selectedStatus)">
     <div fxLayout fxLayoutWrap>
-      <mat-card class="material-card" *ngFor="let material of materials">
+      <mat-card class="material-card" *ngFor="let material of materials" [routerLink]="['/materials', material.id]"
+                queryParamsHandling="preserve">
         <img mat-card-image [src]="material.gallery_image" alt="Material Image">
         <mat-card-content>
           <div class="id">
@@ -49,3 +62,5 @@
 
 <mat-progress-spinner *ngIf="isLoading" class="app-loader" [mode]="'indeterminate'" [color]="'primary'">
 </mat-progress-spinner>
+
+<router-outlet></router-outlet>

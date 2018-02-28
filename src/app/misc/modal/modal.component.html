@@ -1,76 +1,9 @@
-<main class="open">
-  <div class="overlay"></div>
-  <div class="container">
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
-    <p>Modal window text</p>
+<main [class.open]="modalService.getStatus()">
+  <div class="overlay" (click)="modalService.close()" routerLink="/materials" queryParamsHandling="preserve"></div>
 
-    <button class="close-btn">&#10005;</button>
+  <div class="container">
+    <div #container class="content"></div>
+
+    <a (click)="modalService.close()" routerLink="/materials" queryParamsHandling="preserve" class="close-btn">&#10005;</a>
   </div>
 </main>

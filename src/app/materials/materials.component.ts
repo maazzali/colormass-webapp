@@ -10,32 +10,30 @@ import { MaterialsService } from './materials.service';
 })
 export class MaterialsComponent implements OnInit, AfterViewInit {
   public selectedStatus = null;
-  public selectedId = null;
   public materials = [];
+  public getMaterialSubscribe = null;
   public isLoading = false;
   private materialsFetched = false;
   private pageNo = 0;
   private PAGE_SIZE = 8;
 
   constructor(private routeParams: ActivatedRoute,
-              @Inject(MaterialsService)
-              private materialsService) {
-  }
+              @Inject(MaterialsService) private materialsService) {}
 
   ngOnInit() {
-    const { params, queryParams } = this.routeParams.snapshot;
-    this.selectedId = params.id;
-    this.selectedStatus = queryParams.status || 'new';
-    this.getMaterials();
-
+    this.routeParams.queryParamMap.subscribe(this.onChangeQueryParams.bind(this));
   }
 
   ngAfterViewInit() {}
 
-  public getMaterials() {
-    if (!this.isLoading && !this.materialsFetched) {
+  public getMaterials(selectedStatus, forceFetch = false) {
+    if (forceFetch || (!this.isLoading && !this.materialsFetched)) {
       this.isLoading = true;
-      this.materialsService.getMaterialsByState(this.selectedStatus, this.pageNo, this.PAGE_SIZE).subscribe((resp) => {
+      if (this.getMaterialSubscribe) {
+        this.getMaterialSubscribe.unsubscribe();
+      }
+
+      this.getMaterialSubscribe = this.materialsService.getMaterialsByState(selectedStatus, this.pageNo, this.PAGE_SIZE).subscribe(resp => {
         this.isLoading = false;
         if (resp.length > 0) {
           this.pageNo += 1;
@@ -47,4 +45,13 @@ export class MaterialsComponent implements OnInit, AfterViewInit {
     }
   }
 
+  private onChangeQueryParams(data) {
+    this.materials = [];
+    this.materialsFetched = false;
+    this.pageNo = 0;
+
+    const params = data.params;
+    this.selectedStatus = params.status || 'new';
+    this.getMaterials(this.selectedStatus, true);
+  }
 }

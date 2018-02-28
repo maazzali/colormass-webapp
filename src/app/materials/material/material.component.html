@@ -1,0 +1,84 @@
+<main>
+  <div class="not-found" *ngIf="materialNotFound">
+    MATERIAL NOT FOUND
+  </div>
+
+  <mat-card class="material-card" *ngIf="material">
+    <div class="content">
+      <mat-card-content>
+        <div class="row name">
+          <h1>{{ material.name }}</h1>&#160;<small>(id: {{ material.id }})</small>
+        </div>
+
+        <div class="row description">
+          <small>(description)</small>
+        </div>
+
+        <div class="row tags">
+          <mat-chip-list *ngFor="let tag of material.tags">
+            <mat-chip>{{ tag }} <span class="clear">&#10005;</span></mat-chip>
+          </mat-chip-list>
+        </div>
+
+        <div class="row">
+          <label for="customer-select">Customer: </label>
+          <mat-form-field id="customer-select">
+            <mat-select [value]="'Customer 1'">
+              <mat-option value="Customer 1">
+                Customer 1
+              </mat-option>
+              <mat-option value="Customer 2">
+                Customer 2
+              </mat-option>
+              <mat-option value="Customer 3">
+                Customer 3
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <label for="article-id">Article ID:</label>
+          <small id="article-id">(article ID)</small>
+        </div>
+
+        <div class="row">
+          <label for="internal-name">Internal name:</label>
+          <small id="internal-name">(internal name)</small>
+        </div>
+
+        <div class="row">
+          <label for="state-select">State: </label>
+          <mat-form-field id="state-select">
+            <mat-select [value]="material.state">
+              <mat-option value="completed">
+                Completed
+              </mat-option>
+              <mat-option value="new">
+                New
+              </mat-option>
+              <mat-option value="pending">
+                Pending
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <label for="work-state-select">Work State: </label>
+          <mat-form-field id="work-state-select">
+            <mat-select [value]="'waiting'">
+              <mat-option value="waiting">
+                Waiting for external feedback
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </div>
+
+    <div class="image">
+      <img mat-card-image class="img-responsive" [src]="material.gallery_image" alt="Material Image">
+    </div>
+  </mat-card>
+</main>

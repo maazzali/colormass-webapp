@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule as NgCommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonComponentsModule } from './common-components/common-components.module';
-import { MaterialModule } from './material.module';
+import { MaterialDesignModule } from './material-design.module';
 
 
 const COMMON_MODULES = [
   NgCommonModule,
   CommonComponentsModule,
-  MaterialModule,
+  MaterialDesignModule,
   FlexLayoutModule
 ];
 

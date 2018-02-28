@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CommonModule } from './common.module';
 import { LayoutModule } from './layout/layout.module';
-import { MaterialsModule } from './materials/materials.module';
 import { MiscModule } from './misc/misc.module';
 
 import { InMemMaterialsService } from './in-mem/materials.service';
@@ -26,10 +25,9 @@ import { AppComponent } from './app.component';
     HttpClientInMemoryWebApiModule.forRoot(InMemMaterialsService, { delay: 1000 }),
     MiscModule,
     CommonModule,
-    MaterialsModule,
     RouterModule.forRoot(
       [
-        { path: '', redirectTo: '/materials', pathMatch: 'full' },
+        { path: '', redirectTo: 'materials', pathMatch: 'full' },
         { path: 'materials', loadChildren: 'app/materials/materials.module#MaterialsModule' },
       ]
     ),

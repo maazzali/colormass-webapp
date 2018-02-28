@@ -5,17 +5,23 @@ import { CommonModule } from '../common.module';
 import { MaterialsService } from './materials.service';
 
 import { MaterialsComponent } from './materials.component';
+import { MaterialComponent } from './material/material.component';
+import { MaterialDetailComponent } from './material-detail/material-detail.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: 'materials', component: MaterialsComponent },
-      { path: 'materials/:id', component: MaterialsComponent },
+      {
+        path: '', component: MaterialsComponent,
+        children: [{ path: ':id', component: MaterialDetailComponent }
+        ]
+      }
     ])
   ],
   providers: [MaterialsService],
-  declarations: [MaterialsComponent]
+  entryComponents: [MaterialComponent],
+  declarations: [MaterialsComponent, MaterialComponent, MaterialDetailComponent]
 })
 export class MaterialsModule {}
 

@@ -1,0 +1,55 @@
+.not-found {
+
+}
+
+.material-card {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+
+  .image {
+    flex: 50%;
+    > img {
+      margin: 0;
+    }
+  }
+
+  .content {
+    flex: 50%;
+    padding-right: 24px;
+    > .mat-card-content {
+
+      small {
+        color: #82807f;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .clear {
+        background: #a8a8a6;
+        border-radius: 50%;
+        height: 17px;
+        width: 17px;
+        text-align: center;
+        color: #dfdfdd;
+        margin: 0 2px;
+      }
+
+      label {
+        margin-right: 10px;
+      }
+
+      .row {
+        height: 56px;
+        align-items: center;
+        display: flex;
+
+        &.tags {
+          border-bottom: 1px solid #dfdfdf;
+        }
+      }
+    }
+  }
+}
