@@ -11,9 +11,7 @@ export class InfiniteScrollDirective implements OnInit, AfterViewInit {
     this.el = elRef.nativeElement;
   }
 
-  ngOnInit() {
-    // this.childElementCount === 1 && this.firstElementChild
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     this.el.addEventListener('scroll', () => {
