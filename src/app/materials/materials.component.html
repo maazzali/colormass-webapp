@@ -35,7 +35,11 @@
 
   <div class="material-cards" appInfiniteScroll (loadMore)="getMaterials(selectedStatus)">
     <div fxLayout fxLayoutWrap>
-      <mat-card class="material-card" fxFlex="0 0 calc(25% - 30px)" *ngFor="let material of materials" [routerLink]="['/materials', material.id]"
+      <mat-card class="material-card"
+                fxFlex="0 0 calc(25% - 30px)"
+                fxFlex.sm="0 0 calc(33.33% - 30px)"
+                fxFlex.xs="0 0 calc(50% - 30px)"
+                *ngFor="let material of materials" [routerLink]="['/materials', material.id]"
                 queryParamsHandling="preserve">
         <img mat-card-image [src]="material.gallery_image" alt="Material Image">
         <mat-card-content>

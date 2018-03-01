@@ -1,11 +1,11 @@
 <main fxLayout>
   <mat-toolbar color="primary" fxLayout>
     <mat-toolbar-row>
-      <div class="icon img-responsive app-logo">
+      <div class="icon img-responsive app-logo" fxHide.xs="true">
         <img src="assets/images/colormass-logo-cm.svg" alt="app logo"/>
       </div>
 
-      <ul fxLayout fxFlex="1 1 auto" class="links">
+      <ul fxLayout fxFlex="1 1 auto" [ngStyle.gt-xs]="{'padding-left.px': 20}">
         <li>
           <button mat-button>Models</button>
         </li>
@@ -26,7 +26,7 @@
         </li>
       </ul>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu">
+      <button mat-icon-button [matMenuTriggerFor]="menu" fxHide.xs="true">
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
