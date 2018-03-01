@@ -16,6 +16,7 @@ export class MaterialsComponent implements OnInit, AfterViewInit {
   private materialsFetched = false;
   private pageNo = 0;
   private PAGE_SIZE = 8;
+  private DEFAULT_STATUS = 'new';
 
   constructor(private routeParams: ActivatedRoute,
               @Inject(MaterialsService) private materialsService) {}
@@ -52,7 +53,7 @@ export class MaterialsComponent implements OnInit, AfterViewInit {
     this.pageNo = 0;
 
     const params = data.params;
-    this.selectedStatus = params.status || 'new';
+    this.selectedStatus = params.status || this.DEFAULT_STATUS;
     this.getMaterials(this.selectedStatus, true);
   }
 }
