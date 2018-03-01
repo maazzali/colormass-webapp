@@ -3,8 +3,8 @@
     MATERIAL NOT FOUND
   </div>
 
-  <mat-card class="material-card" *ngIf="material">
-    <div class="content">
+  <mat-card class="material-card" fxLayout="row" fxLayoutAlign="flex-start flex-start" *ngIf="material">
+    <div class="content" fxFlex="50%">
       <mat-card-content>
         <div class="row name">
           <h1>{{ material.name }}</h1>&#160;<small>(id: {{ material.id }})</small>
@@ -83,8 +83,12 @@
       </mat-card-content>
     </div>
 
-    <div class="image">
+    <div class="image" fxFlex="50%">
       <img mat-card-image class="img-responsive" [src]="material.gallery_image" alt="Material Image">
     </div>
   </mat-card>
+
+  <div fxLayout fxLayoutAlign="center center" *ngIf="isLoading">
+    <mat-progress-spinner class="app-loader" [mode]="'indeterminate'" [color]="'primary'"></mat-progress-spinner>
+  </div>
 </main>

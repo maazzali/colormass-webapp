@@ -3,19 +3,13 @@
 }
 
 .material-card {
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-
   .image {
-    flex: 50%;
     > img {
       margin: 0;
     }
   }
 
   .content {
-    flex: 50%;
     padding-right: 24px;
     > .mat-card-content {
 
