@@ -33,7 +33,8 @@ export class MaterialsComponent implements OnInit, AfterViewInit {
         this.getMaterialSubscribe.unsubscribe();
       }
 
-      this.getMaterialSubscribe = this.materialsService.getMaterialsByState(selectedStatus, this.pageNo, this.PAGE_SIZE).subscribe(resp => {
+      this.getMaterialSubscribe = this.materialsService.getMaterialsByState(selectedStatus, this.pageNo, this.PAGE_SIZE)
+        .subscribe(resp => {
         this.isLoading = false;
         if (resp.length > 0) {
           this.pageNo += 1;
